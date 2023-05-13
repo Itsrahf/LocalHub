@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/asset/css/sellerSignUp.css" type="text/css"/>
+
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"/>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;500;900 &display=swap");
+        </style>
+        <!-- importing icons from awesomefont website-->
+        <link
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png"/>
+    </head>
+    <body>
+        <div class="splitscreen">
+            <div class="left" style="margin-top: 100px">
+                <form action="/seller/signup" method="POST" enctype="multipart/form-data">
+                    <section class="copy">
+                        <h1>Sign Up</h1>
+                        <p>
+                            Join the Local Hub community of sellers and showcase your products
+                                                                                                  now!
+                        </p>
+
+                        <div class="login-container">
+                            <p>
+                                Already have an account?<a href="/signin">
+                                    Sign in here!
+                                </a>
+                            </p>
+                        </div>
+                    </section>
+                    <% if(typeof error1 !== 'undefined' && error1.length >= 1){%>
+                    <div class="error" style="color:#54a18a;">
+                        <p> <%= error1 %> </p>
+                      </div>
+                      <% } %>
+                    <div class="input-container name">
+                        <label for="brandName">Brand Name</label>
+                        <input required id="brandName" name="brandName" type="text"/>
+                    </div>
+
+                    <div>
+                        <label for="brandDescription">Brand Description</label>
+                        <textarea required type="text" name="brandDescription" placeholder="Enter your Brand Description " class="box" style="resize: none;"></textarea>
+                    </div>
+
+                    <div class="input-container email">
+                        <label for="sellerEmail">Email:</label>
+                        <input required id="sellerEmail" name="sellerEmail" type="email" placeholder=""/>
+                    </div>
+                    <div>
+                        <label for="brandLogo">Brand Logo</label>
+                        <input required type="file" name="brandLogo" required/>
+                    </div>
+                    <div class="input-container phone">
+                        <label for="sellerPhone">Phone:</label>
+                        <input required id="sellerPhone" name="sellerPhone" type="tel" placeholder="05xxxxxxx"  pattern="05[0-9]{8}" maxlength="10"/>
+                    </div>
+
+                    <div class="input-container name">
+                        <label for="instagram">Instagram Username</label>
+                        <input id="instagram" name="instagram" type="text"/>
+                    </div>
+                    <div class="input-container name">
+                        <label for="tiktok">Tik Tok Username</label>
+                        <input id="tiktok" name="tiktok" type="text"/>
+                    </div>
+
+                    <div class="input-container name">
+                        <label for="snapchat">Snapchat Username</label>
+                        <input id="snapchat" name="snapchat" type="text"/>
+                    </div>
+                    <br/>
+
+                    <div class="input-container registration">
+                        <label for="maroofLicense">
+                            Maroof License Number</label>
+                        <input required id="maroofLicense" name="maroofLicense" placeholder="Must be 5 numbers" type="text" pattern="[0-9]+" maxlength="5"/>
+                        
+
+                            
+                     
+                        
+                         
+
+                    </div>
+
+                    <div class="input-container password">
+                        <label for="sellerPassword">Password:</label>
+                        <input required id="sellerPassword" name="sellerPassword" type="password" placeholder="Must be at least 8 characters"/>
+                        <i class="fa fa-eye-slash"></i>
+                    </div>
+                    <br/>
+                    <button type="submit" id="submit-button" class="signup-btn">Sign Up</button>
+                    <section class="copy legal">
+                        <p>
+                            <span class="small">
+                                By signing up you agree to our
+                                <a href="#">Terms & Conditions</a>
+                            </span>
+                        </p>
+                    </section>
+                </form>
+            </div>
+            <div class="right">
+                <section class="copy"></section>
+            </div>
+        </div>
+        <!-- So they can view their password -->
+        <script>
+            const passwordField = document.getElementById('sellerPassword');
+            const eyeIcon = document.querySelector('.fa-eye-slash');
+
+            eyeIcon.addEventListener('click', () => {
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                } else {
+                    passwordField.type = 'password';
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                }
+            });
+
+            //Validate password
+            // to validate the password
+            const submitButton = document.getElementById("submit-button");
+            submitButton.addEventListener("click", validatePassword);
+
+            function validatePassword(event) {
+                const passwordInput = document.getElementById("sellerPassword");
+                const password = passwordInput.value;
+
+                if (! password || password.length < 8) {
+                    event.preventDefault();
+                    alert("Password must be at least 8 characters long.");
+                }
+            }
+        </script>
+    </body>
+</html>

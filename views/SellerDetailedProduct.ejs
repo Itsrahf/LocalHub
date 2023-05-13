@@ -1,0 +1,115 @@
+<!-- detailed page for a single product for the seller-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- meta tags -->
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0"/>
+        <title>The Local Hub</title>
+        <link rel="stylesheet" href="/asset/css/SellerDetailedProduct.css"/>
+        <link rel="stylesheet" type="text/css" href="/asset/css/navbar.css"/>
+        <link
+        rel="stylesheet" type="text/css" href="/asset/css/footer.css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png"/>
+    </head>
+    <body>
+        <%- include('./partials/nav-bar.ejs') %>
+
+        <div class="container" style="margin: 90px 454px 0;">
+            <div class="addproduct-form-container">
+                <img src="\img\scatter.png" class="scatter" alt="" style="opacity: 0.5"/>
+                <form action="/seller/sellerDetailedProduct" method="POST" name="detailedProducts">
+                    <h3>Product Details</h3>
+                    <input type="hidden" name="prodId" value="<%= product._id %>">
+                    
+                    <label for="productname">Product Name</label>
+                    <input required type="text" name="productname" value="<%= product.productname %>" class="box"/>
+
+                    <label for="productprice">Product Price</label>
+                    <input required type="number" name="productprice" value="<%= product.productprice %>" class="box"/>
+
+                    <label for="productdesc">Product Description</label>
+                    <textarea type="text" name="productdesc" class="box" style="resize: none;" oninput="validateTextarea(this)">
+                        <%= product.productdesc %>
+                    </textarea>
+
+
+                    <label for="sizeModel">Size of Model</label>
+                    <input required type="text" name="sizeModel" value="<%= product.sizeModel %>" class="box"/>
+
+                    <label for="name">Main Product Image</label>
+                    <img src="/uploads/<%= product.productimg1 %>" class="productImg"/>
+
+                    <label for="name">Product Image 2</label>
+                    <img src="/uploads/<%= product.productimg2 %>" class="productImg"/>
+
+                    <label for="name">Product Image 3</label>
+                    <img src="/uploads/<%= product.productimg3 %>" class="productImg"/>
+
+                    <label for="name">Size Guide</label>
+                    <input required type="text" name="sizeGuide" value="<%= product.sizeGuide %>" class="box"/>
+
+                    <label for="careProcess">Care Process</label>
+                    <textarea required type="text" name="careProcess" class="box" style="resize: none;"><%= product.careProcess %></textarea>
+
+                    <label for="name">Available Sizes</label>
+                    <!-- to display the available sizes -->
+                    <% product.availableSizes.forEach(function(size) { %>
+                        <span style="font-size: medium;"><%= size %></span>
+                    <% }); %>
+                        <hr>
+                    <label for="name">Update Available Sizes</label>
+                    <label for="small">small</label>
+                    <input type="checkbox" name="small" id="" value="small">
+                    <label for="medium">medium</label>
+                    <input type="checkbox" name="medium" id="" value="medium">
+                    <label for="large">large</label>
+                    <input type="checkbox" name="large" id="" value="large">
+
+                    <br/>
+                    <!-- Save Button -->
+                    <input type="submit"  onclick="return validateSizes()" class="btn" for="products" name="save_edit" value="Save"/>
+                </form>
+            </div>
+        </div>
+        <div
+            style="height: 100px"><!-- This is to seperate between the body and the footer -->
+        </div>
+
+        <%- include('./partials/footer.ejs') %>
+
+
+        <script>
+            /* To make sure theres a product description */
+            function validateTextarea(textarea) {
+                const submitButton = document.querySelector('.submit');
+                if (textarea.value.trim() === '') {
+                    textarea.setCustomValidity('Please enter a product description.');
+                    submitButton.disabled = true;
+                } else {
+                    textarea.setCustomValidity('');
+                    submitButton.disabled = false;
+                }
+            }
+            // To make sure at least one size is chosen
+            function validateSizes() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                let checked = false;
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked) {
+                        checked = true;
+                        break;
+                    }
+                }
+                if (! checked) {
+                    alert('Please select at least one size.');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>
+</html></body></html>

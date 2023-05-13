@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;500;900&display=swap');
+
+/* Global Styling */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Barlow', sans-serif;
+    color: #54a18a;
+    color: #f9cc8e;
+    color: #a9c0d5;
+    color: #d4dfea;
+    color: #121212;
+}
+
+body{
+    width:100%;
+    position:relative;
+    display:flex;
+}
+
+#menu{
+    background: #d4dfea ;
+    width:300px;
+    height:100%;
+    position: fixed; /* so that the position of the navbar on the left is fixed*/
+    top:0;
+    left:0;
+}
+#menu .logo {
+    display:flex;
+    align-items:center;
+    padding: 30px 0 0 30px;
+}
+#menu .logo img{
+    width:40%;
+}
+
+#menu .items{
+    margin-top: 40px;
+}
+#menu .items li{
+    list-style: none;
+    padding:15px 0;
+    transition: 0.3s ease;
+}
+#menu .items li i{
+    color: #657e95;
+    width:30px;
+    height:30px;
+    line-height: 30px;
+    text-align:center;
+    font-size: 14px;
+    margin: 0 10px 0 25px;
+}
+#menu .items li:hover{
+    background:#a9c0d5;
+    cursor:pointer;
+}
+#menu .items li:nth-child(1) {
+    border-left: 4px solid white;
+}
+#menu .items li:hover i, #menu .items li:hover a {
+    color:white;
+}
+#menu .items li a{
+    text-decoration: none;
+    font-weight: 300px;
+    color: #657e95;
+    transition: 0.3s ease;
+}
+
+#interface {
+    width: calc(100% - 300px);
+    margin-left:300px;
+    position:relative;
+}
+#interface .navigation{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    margin-top: 45px; 
+}
+#interface .navigation h2{
+margin:auto;
+}
+.n1{
+    display:flex;
+}
+#menu-btn{
+    display:none;
+    cursor:pointer;
+}
+
+
+@media (max-width: 769px){
+    #menu{
+        width:270px;
+        position: fixed; /* so that the position of the navbar on the left is fixed*/
+        left:-270px;
+        transition: 0.3s ease;
+    }
+    #menu.active{
+        left:0px;
+    }
+    #menu-btn{
+        display:initial;
+    }
+    #interface {
+        width: 100%;
+        margin-left:0;
+        display:inline-block;
+        transition: 0.3s ease;
+    }
+    #menu.active~#interface{
+        width:calc(100%-270px);
+        margin-left:270px;
+        transition: 0.3s ease;
+    }
+    #interface .navigation{
+        width:100%;
+    }
+}

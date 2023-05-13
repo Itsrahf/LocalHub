@@ -1,0 +1,52 @@
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #54a181;
+  margin: 10px;
+  font-size: 14px;
+}
+.nav-pills .nav-link.active:hover, .nav-pills .show > .nav-link:hover {
+  color: #ffffff;
+  background-color: #43806e;
+}
+
+.btn{
+  font-size: 14px;
+  margin: 30px;
+}
+.btn-primary {
+  background-color: #54a181;
+  color: #ffffff;
+  border: none;
+}
+.btn-primary:hover {
+  color: #ffffff;
+  background-color: #43806e;
+  border: none;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  border-radius: 4px ;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.h1, h1 {
+  justify-content: center;
+  text-align: center;
+  color: #468371;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+  
+
+  .h1, h1 {
+    justify-content: center;
+    text-align: center;
+    color: #468371;
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+ 

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #54a18a;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-code {
+  font-size: 12rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.error-message {
+  font-size: 2rem;
+  margin: 1.5rem 0;
+  font-family: 'Barlow', sans-serif;
+}
+
+.button-container {
+  display: flex;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  text-decoration: none;
+  color: #fff;
+  background-color: #f9cc8e;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn i {
+  margin-right: 0.5rem;
+}
+
+.fa-home {
+  color: #a9c0d5;
+}
+
+.fa-shopping-cart {
+  color: #54a18a;
+}

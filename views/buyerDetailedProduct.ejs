@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- meta tags -->
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0"/>
+        <title>Local Hub</title>
+
+        <!-- linking our external style sheet-->
+        <link rel="stylesheet" href="/asset/css/pdp.css"/>
+        <link rel="stylesheet" href="/asset/css/navbar.css"/>
+        <link
+        rel="stylesheet" href="/asset/css/footer.css"/>
+        <!-- importing icons from awesomefont website-->
+        <link
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+
+    </head>
+    <body>
+        <!--header section -->
+        <%- include('./partials/nav-bar.ejs') %>
+        <div
+            style="height:40px"><!-- seperate between navbar and body -->
+        </div>
+
+        <section id="prodetails" class="section-p1">
+            <div class="single-pro-img">
+                <img src="/uploads/<%= product.productimg1 %>" width="100%" id="MainImg" alt=""/>
+
+                <div class="Small-img-group">
+                    <div class="small-img-col">
+                        <img src="/uploads/<%= product.productimg1 %>" width="100%" class="sm-img" alt=""/>
+                    </div>
+                    <div class="small-img-col">
+                        <img src="/uploads/<%= product.productimg2 %>" width="100%" class="sm-img" alt=""/>
+                    </div>
+                    <div class="small-img-col">
+                        <img src="/uploads/<%= product.productimg3 %>" width="100%" class="sm-img" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product1" class="single-pro-details">
+                <h6><%= product.seller.brandName.split(' ').map(word =>
+          word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') %></h6>
+                <h4><%= product.productname %></h4>
+                <h2><%= product.productprice %>
+                    SAR</h2>
+
+                <% if (role === 'buyer') { %>
+                    <form action="/cart/add/<%= product.productprice %>" method="POST">
+                        <select name="size">
+                            <option value="" disabled >Select Size</option>
+                            <% product.availableSizes.forEach(size => { %>
+                                <% if(size && size !== null && size){ %>
+                                    <option name="size" value="<%= size %>"><%= size %></option>
+                                <% }}) %>
+                            </select>
+                            <input type="hidden" name="productId" value="<%= product._id %>"/>
+                            <input type="hidden" name="name" value="<%= product.productname %>"/>
+                            <input type="hidden" name="img" value="<%= product.productimg1 %>"/>
+                            <script>
+                                console.log(product.availableSizes)
+                            </script>
+                            <input type="number" name="quantity" min="1" value="1" max="10"/>
+                            <button type="submit" class="normal">
+                                Add to cart
+                            </button>
+                        </form>
+                    <% } %>
+                    <h4>Product Details</h4>
+                    <span><%= product.productdesc %></span>
+                    <h4>Care Process</h4>
+                    <span><%= product.careProcess %></span>
+                    <h4>Size of the Model</h4>
+                    <span><%= product.sizeModel %></span>
+                </div>
+            </section>
+
+
+        </section>
+
+
+        <div
+            style="height:40px"><!-- seperate between footer and body -->
+        </div>
+
+        <!--footer -->
+        <%- include('./partials/footer.ejs') %>
+
+
+        <script>
+            var MainImg = document.getElementById("MainImg");
+            var smallImg = document.getElementsByClassName("sm-img");
+
+            // if anyone clicks on small image it will replace the big image
+
+            smallImg[0].onclick = function () {
+                MainImg.src = smallImg[0].src;
+            };
+
+            smallImg[1].onclick = function () {
+                MainImg.src = smallImg[1].src;
+            };
+
+            smallImg[2].onclick = function () {
+                MainImg.src = smallImg[2].src;
+            };
+        </script>
+
+        <!-- <script src="script.js"></script> -->
+    </body>
+</html>

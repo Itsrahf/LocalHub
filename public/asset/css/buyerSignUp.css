@@ -1,0 +1,109 @@
+body{
+    padding:0;
+    margin:0;
+    font-family: 'Barlow', sans-serif;
+}
+h1{
+    font-size: 2.25rem;
+    font-weight:700;
+}
+h2{
+    font-size: 1.5rem;
+    font-weight:700;
+}
+a{
+    text-decoration: none;
+    color:#a9c0d5;
+}
+a:hover{
+    text-decoration: underline;
+}
+.small{
+    font-size: 80%;
+    text-align: center;
+}
+/* .right {
+       background-image: url('/img/alternativeSignIn.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        justify-content: center;
+        align-items:center; 
+        margin-bottom: 50px;
+        margin-top: 50px;
+        
+  } */
+  .right {
+    background: url("/img/buyerSignUp.svg") no-repeat center center;
+    background-size: cover;
+  
+  }
+
+.splitscreen{
+    display:flex;
+    flex-direction: row;
+}
+.left , .right{
+    display:flex;
+    width:50%;
+    height:auto;
+    justify-content: center;
+    align-items:center;
+}
+
+img{
+    width:900px;
+}
+
+.left .copy{
+    color:#47525E;
+    text-align: center;
+    margin-top:60px;
+}
+.left .copy p{
+    margin:1.5 em 0;
+    font-size: 0.875rem;
+}
+.left form{
+    width: 328px;
+    
+}
+form input[type='text'],
+form input[type='email'],
+form input[type='password'],
+form input[type='tel'],
+form textarea[type='text']{
+    display:block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8 px;
+    border: 1px solid #47525E;
+    padding:1em;
+    margin-bottom:1.25rem;
+    margin-top:1.25rem;
+    font-size: 0.875rem;
+}
+label{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+.signup-btn{
+    display:block;
+    width: 100%;
+    background:#54A18A;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius:8px;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing: 0.5px;
+}
+.signup-btn:hover{
+    background: #3e7967;
+    cursor:pointer;
+}
+
+

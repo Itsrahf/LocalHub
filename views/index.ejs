@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- meta tags -->
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0"/>
+        <title>The Local Hub</title>
+        <link rel="stylesheet" type="text/css" href="/asset/css/index.css">
+        <link rel="stylesheet" type="text/css" href="/asset/css/index-nav.css">
+        <link rel="stylesheet" type="text/css" href="/asset/css/footer.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+
+    <body>
+        <!--Partials for the navbar  -->
+        <%- include('partials/nav-bar') %>
+
+        <!-- Hero Parralax Section -->
+        <section>
+
+            <img
+            src="/img/1.png" id="sun">
+            <!-- <img src="/public/img/4.png" id="behind"> -->
+            <img
+            src="/img/scatter_house.png" id="behind">
+
+            <!-- some text we can add -->
+            <h2 id="nameh2">The Local Hub</h2>
+
+            <a href="/shopping" class="btn">Shop now</a>
+
+            <img src="/img/tree.png" id="front">
+        </section>
+
+        <div class="sec">
+            <h2>Who Are We</h2>
+            <p>
+                The Local Hub focuses on the problems and pain points 
+                          that consumers in the kingdom experience in relation 
+                          to the daily buying and selling of local goods.The main 
+                          goal of the The Local Hub is to open up new business 
+                          opportunities by making it easier for businesses to sell 
+                          their products and gain more exposure, while also introducing 
+                          customers to a variety of fantastic small businesses in the 
+                          kingdom that they can appreciate.It is a platform that links 
+                          numerous regional online retailerswith customers looking for 
+                          a simpler way to purchase goods like clothing.
+            </p>
+
+            <img src="/img/abs-light1.png" alt="" class="sec-img">
+            <img src="/img/houseshopping.png" alt="" class="sec-img-house">
+        </div>
+
+        <!-- embedded Java Script for the hero section -->
+
+        <script>
+
+            let sun = document.getElementById('sun');
+            let btn = document.getElementsByClassName('btn');
+
+            window.addEventListener('scroll', function () {
+
+                let value = window.scrollY;
+                sun.style.top = value * 0.5 + 'px';
+                btn.style.marginTop = value * 1.5 + 'px';
+
+
+                window.scroll(function () { // if I scroll more than 1000px...
+                    if ($(window).scrollY > 100) { // Then change the elements position to fixed:
+                        $("#sun").css("position", "fixed");
+                    }
+                });
+
+            })
+        </script>
+
+
+        <!-- Our Services -->
+
+
+        <div class="service">
+            <div class="title">
+                <h2>What We Strive For</h2>
+            </div>
+        </div>
+
+        <div class="service-box">
+            <div class="service-card">
+                <i class="fa-solid fa-truck"></i>
+                <h5 id="service-h">Fast Delivery</h5>
+                <div class="para">
+                    <p>We are committed to fast delivery so that you can enjoy your purchase quickly. 
+                                              Our delivery team works hard to ensure packages are sent as quickly as possible.</p>
+
+
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fa-solid fa-list-check"></i>
+                <h5 id="service-h">Large Range of Products</h5>
+                <div class="para">
+                    <p>We offer a wide variety of products for all your needs. From home goods, health and beauty items, to electronics and apparel, we have it all. Our selection aims to make shopping easy and enjoyable. Shop today and discover our great prices and service. We're sure you'll find just what you're looking for.</p>
+
+
+                </div>
+            </div>
+
+
+            <div class="service-card">
+                <i class="fa-solid fa-face-smile-beam"></i>
+                <h5 id="service-h">Maximize Customer Satisfaction</h5>
+                <div class="para">
+                    <p>We strive to ensure customer satisfaction in everything we do. We work hard to ensure that our products and services meet the highest standards.
+                    </p>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Featured Stores -->
+
+        <section class="featurestr">
+            <br>
+            <div class="middle-text">
+                <h4>Featured Stores</h4>
+                <h2>Come take a look at our featured stores of the month!</h2>
+            </div>
+            <div style="height:30px">
+
+            </div>
+            <br>
+
+            <% for(let i = 0; i < 3; i++) {let s = seller[i]; %>
+                <div class="featuredstr-card">
+                    <div class="featuredstr-img-bx">
+                      <img src="/uploads/<%= s.brandLogo %>" alt="Brand"  style="border-radius: 0%;" />
+                    </div>
+                    <div class="featuredstr-content">
+                      <div class="featuredstr-detail">
+                        <h2> <%= s.brandName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') %> </h2>
+                        <ul class="featuredstr-sci">
+                          <li>
+                            <a class="socialMedia" href="https://www.instagram.com/<%= s.instagram %>" target="_blank"><i class="fab fa-instagram"></i></a>
+                          </li>
+                          <br>
+                          <li>
+                            <a class="socialMedia" href="https://www.snapchat.com/add/<%= s.snapchat %>" target="_blank"><i class="fab fa-snapchat"></i></a>
+                          </li>
+                          <br>
+                          <li>
+                            <a class="socialMedia" href="https://www.tiktok.com/@<%= s.tiktok %>" target="_blank"><i class="fab fa-tiktok"></i></a>
+                          </li>
+                        </ul>
+          
+                        <a href="/seller/<%=s.brandName%>"><button class="featurestr-btn" style="cursor: pointer; border:0;">Shop now</button></a>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <% } %>
+
+
+        </section>
+
+
+        <br>
+
+        <!-- Have your own brand?-->
+        <div class="box">
+
+            <h1>Have your own brand?</h1>
+            <br>
+            <div class="box2">
+                <h3>Join our club</h3>
+                <p>Become part of the Local Hub community and watch
+                    <br>your business expand!</p>
+                <br>
+
+                <a href="/seller/signup">
+                    <button class="btn-question">Sign up</button>
+                </a>
+
+            </div>
+        </div>
+        <div
+            style="height:50px;"><!-- I know this div is empty. don't panic. 
+                        this was put here to leave a space between 
+                        the footer and rest of the page so that the
+                         footer doesn't overlap with anything. please don't remove it. carry on. -->
+        </div>
+
+
+        <br>
+        <%- include('partials/footer') %>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,145 @@
+body {
+  font-family: 'Barlow', sans-serif;
+    margin: 0;
+  }
+  
+  /* Page Content */
+  .content {
+      padding:10px;
+      max-width: auto;
+      margin: 10px ;
+  }
+
+  /* Cart page*/
+  #cart{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    overflow-x: auto;
+    text-align: center;
+  }
+  #cart h1{
+    color: #478372;
+    padding: 20px;
+    font-size: 32px;
+    margin-bottom: 20px;
+
+  }
+  #cart table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    border-bottom: 1px solid #aaaaaa;
+  }
+  #cart table thead{
+    border: 1px solid #aaaaaa;
+    border-left: none;
+    border-right: none;
+    color: #ffffff;
+    background-color: #376c5c;
+  }
+  #cart table thead td{
+    font-weight: 600;
+    font-size: 20px;
+    padding: 13px 0px;
+  }
+  #cart table tbody tr td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  #cart table tbody td{
+    font-size: 13px;
+  }
+  #cart table img{
+    width: 70px;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  #cart table td:nth-child(1),
+  #cart table td:nth-child(3),
+  #cart table td:nth-child(4),
+  #cart table td:nth-child(5){
+    width: 150px;
+    text-align: center;
+  }
+  #cart table td:nth-child(2){
+    width: 250px;
+    text-align: center;
+  }
+  #cart table td:nth-child(6){
+    width: 100px;
+    text-align: center;
+  }
+  #cart table td input{
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+  }
+  .fa{
+    color: #000;
+  }
+  .delete_btn{
+    border: none;
+  }
+  #cart table tbody tr:nth-child(even){
+    background-color: #8e787822;
+    margin: 10px 0;
+  }
+
+  /* coupon and cart totals divs */
+  #cart-add{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* Add coupon div */
+  #coupon{
+    width: 50%;
+    margin-bottom: 30px;
+  }
+  #coupon h3,
+   #subtotal h3{
+    padding-bottom: 15px;
+  }
+  #coupon input{
+    padding: 10px 20px;
+    outline: none;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid #aaaaaa;
+  }
+
+/* Cart total div */
+  #subtotal{
+    width: 40%;
+    margin-bottom: 30px;
+    border: 1px solid #aaaaaa;
+    padding: 30px;
+  }
+  #subtotal table{
+    border-collapse: unset;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #subtotal table td{
+    width: 50%;
+    /* border: 1px solid #aaaaaa; */
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  /* Buttons style */
+  #coupon button,
+  #subtotal button{
+    background-color: #54a181;
+    color: #ffffff;
+    border: none;
+    padding:  10px 20px;
+    border-radius: 8px
+  }
+  #coupon button:hover,
+  #subtotal button:hover{
+    color: #ffffff;background-color: #43806e;
+    border-color: #43806e;
+    border-radius: 8px
+}

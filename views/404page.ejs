@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>404 Page Not Found</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-n6Urg+6G/Vo6T7AV6U77OXp9XoRbmoY6ZJzE1kxI+kr04w1n4pE4aF4lCfP9e+jDZHNFk1nS/x2SvO+7JW8NQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" type="text/css" href="/asset/css/indexstyle.css">
+        <link
+        rel="stylesheet" type="text/css" href="/asset/css/navbar.css">
+
+        <!-- importing icons from awesomefont website-->
+        <link
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600 &display=swap');
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #54a18a;
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+            }
+
+            .container {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .error-code {
+                font-size: 12rem;
+                font-weight: 600;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            }
+
+            .error-message {
+                font-size: 2rem;
+                margin: 1.5rem 0;
+            }
+
+            .button-container {
+                display: flex;
+            }
+
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                border-radius: 0.5rem;
+                padding: 1rem 2rem;
+                margin: 1rem;
+                text-decoration: none;
+                color: #fff;
+                background-color: #f9cc8e;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+                transition: all 0.2s ease;
+            }
+
+            .btn:hover {
+                cursor: pointer;
+                box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            }
+
+            .btn i {
+                margin-right: 0.5rem;
+            }
+
+            .fa-home {
+                color: #a9c0d5;
+            }
+
+            .fa-shopping-cart {
+                color: #54a18a;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <%- include('./partials/nav-bar.ejs') %>
+
+
+        <div class="container">
+            <h1 class="error-code">404</h1>
+            <p class="error-message">Oops! The page you are looking for could not be found.</p>
+            <div class="button-container">
+                <a href="/" class="btn">
+                    <i class="fas fa-home"></i>
+                    Go to Home
+                </a>
+
+                <button class="btn" onclick="history.back()">Go Back</button>
+
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,85 @@
+body {
+	color: #000000;
+	background-color: #000000;
+}
+
+.box {
+	margin: auto;
+}
+
+.heading {
+	font-weight: bold;
+	font-size:30px;
+}
+
+.sub-heading {
+	border-top: 1px solid #E0E0E0;
+	border-bottom: 1px solid #E0E0E0;
+	padding: 8px 0 8px 0;
+	margin-top: 20px;
+	margin-bottom: 35px;
+}
+
+.card {
+	padding: 8%;
+	padding-bottom: 30px;
+	padding-top: 50px;
+	margin-top: 60px;
+	margin-bottom: 110px;
+	background-color: #ffffff;
+	border-radius: 0;
+}
+
+textarea[name="message"] {
+	resize: none;
+}
+
+#e-mail {
+	height: 45px;
+}
+
+#message {
+	height: 120px;
+}
+
+
+input.input-box, textarea.input-box {
+	background-color : #E0E0E0;
+	border: #616161;
+	color: #54a18a;
+	font-size: 15px;
+	padding: 15px auto 15px auto !important;
+	height: 50px !important;
+}
+
+input.input-box:focus, textarea.input-box:focus {
+	background-color: #54a18a;
+	color: #ffffff;
+    transition: ease 0.3s;
+}
+
+.rm-border:focus {
+	border-color: inherit;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+form .form-control::-webkit-input-placeholder { 
+  	color: #54a18a;
+    
+}
+.discountcode{
+    margin-bottom:20px;
+}
+
+::-moz-placeholder {
+  	color: #54a18a !important;
+}
+
+input.btn-black {
+	background-color: #f9cc8e;
+	color: #ffffff;
+	font-weight: bold;
+	height: 50px;
+}
+

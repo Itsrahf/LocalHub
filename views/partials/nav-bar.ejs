@@ -1,0 +1,57 @@
+<!-- navbar -->
+
+<header>
+    <a href="/"><img src="/img/logo.png" class="logo"></a>
+  <ul>
+    <% if (role == 'buyer' || role == 'guest'){ %>
+    <li>
+      <a class="<%= path === '/' ? 'active' : '' %>" href="/">Homepage</a>
+    </li>
+    
+    <% } %>
+    <li>
+      <a class="<%= path === '/shopping' ? 'active' : '' %>" href="/shopping" >Shop</a>
+    </li>
+      <% if (!isAuthenticated){ %>
+    <li>
+      <a class="<%= path === '/signin' ? 'active' : '' %>" href="/signin">Sign in</a> 
+    </li>
+    <% } %>
+    <% if (role == 'seller' && isAuthenticated){ %> 
+      
+      <li> 
+        <a class="<%= path === '/seller/' + brandName ? 'active' : '' %>" href="/seller/<%= brandName %>">My Brandpage</a>
+      </li>
+      
+    <li>
+      <a class="<%= path === '/seller/orderList' ? 'active' : '' %>" href="/seller/orderList">Orders</a>
+    </li>
+    <li>
+      <a class="<%= path === '/seller/addproduct' ? 'active' : '' %>" href="/seller/addproduct">Add products </a>
+    </li>
+    <li>
+      <a class="<%= path === '/seller/profile' ? 'active' : '' %>" href="/seller/profile"><i class="fas fa-user" style="color: #408080;"></i></a>
+    </li> 
+    <% } %>
+    <% if (role == 'buyer'){ %>
+      <li>
+        <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders" >Orders</a>
+      </li>
+    <li> 
+      <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart"><i class="fa-solid fa-cart-shopping" style="color: #408080;"></i></a>
+    </li>
+    <li>
+      <a class="<%= path === '/profile' ? 'active' : '' %>" href="/profile"><i class="fas fa-user" style="color: #408080;"></i></a>
+    </li> 
+    <% } %>
+    <% if (isAuthenticated){ %>
+      <li>
+        <a class="<%= path === '/logout' ? 'active' : '' %>" href="/logout"><i class="fa-solid fa-right-from-bracket" style="color: #408080;"></i> </a>
+      </li>
+    <% } %>
+      <!-- <li> <a href=""><i class="fa-solid fa-user" style="color: #408080;"></i></a></li> -->
+      
+   
+
+</ul>
+</header>

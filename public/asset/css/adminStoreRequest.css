@@ -1,0 +1,133 @@
+body {
+    font-family: 'Barlow', sans-serif;
+    margin: 0;
+  }
+  
+  /* Header/Logo Title */
+  .header {
+    padding: 10px;
+    text-align: center;
+    background: #54a181;
+    color: white;
+    font-size: 30px;
+  }
+  
+  /* Page Content */
+  .content {
+      padding:10px;
+      max-width: auto;
+      margin: 10px ;
+  }
+
+  /* storereq page*/
+  #storereq{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    overflow-x: auto;
+  }
+  #storereq h1{
+    padding-bottom: 40px;
+  }
+  #storereq table{
+    width: 100%;
+    border-collapse: collapse;
+
+    white-space: nowrap;
+    border-bottom: 1px solid #aaaaaa;
+  }
+  #storereq table thead{
+    border: 1px solid #aaaaaa;
+    border-left: none;
+    border-right: none;
+  }
+  #storereq table thead td{
+    font-weight: 600;
+    font-size: 20px;
+    padding: 13px 0px;
+    padding:40px;
+    
+  }
+  table {
+    border-collapse: collapse;
+  }
+  
+  flex-container {
+    display: flex;
+    justify-content: center; /* center the content horizontally */
+    align-items: center; /* center the content vertically */
+    height: 100vh; /* set the height of the container to the full viewport height */
+  }
+  
+  p {
+    flex: 1; /* make the paragraph flexible */
+    text-align: center; /* center the text horizontally */ 
+  } 
+  
+  
+  
+
+  
+  #storereq table tbody tr td{
+    padding-top: 15px;
+    
+  }
+  #storereq table tbody td{
+    font-size: 13px;
+  }
+  #storereq table img{
+    width: 70px;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .fa{
+    color: #000;
+  }
+  #storereq table tbody tr:nth-child(even){
+    background-color: #aaaaaa13;
+    margin: 10px 0;
+  }
+  #storereq-add{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #coupon{
+    width: 50%;
+    margin-bottom: 30px;
+  }
+  #coupon h3,
+   #subtotal h3{
+    padding-bottom: 15px;
+  }
+  #coupon input{
+    padding: 10px 20px;
+    outline: none;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid #aaaaaa;
+  }
+  #coupon button,
+  #subtotal button{
+    background-color: #326052;
+    color: #ffffff;
+    border: none;
+    padding:  10px 20px;
+  }
+  #subtotal{
+    width: 40%;
+    margin-bottom: 30px;
+    border: 1px solid #aaaaaa;
+    padding: 30px;
+  }
+  #subtotal table{
+    border-collapse: unset;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #subtotal table td{
+    width: 50%;
+    /* border: 1px solid #aaaaaa; */
+    padding: 10px;
+    font-size: 13px;
+  }

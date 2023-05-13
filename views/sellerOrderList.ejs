@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Seller Orders</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+        <link
+        rel="stylesheet" type="text/css" href="/asset/css/sellerOrders.css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png"/>
+    </head>
+    <body>
+        <!-- navbar -->
+        <%- include('./partials/nav-bar.ejs') %>
+
+        <!--  -->
+        <section class="py-5 my-5">
+            <div class="container">
+                <h1 class="mb-5">Order List</h1>
+                <div class="bg-white shadow rounded-lg d-block d-sm-flex" style="height: 500px">
+                    <div class="profile-tab-nav border-right" style="height: auto">
+                        <div class="p-4">
+                            <div class="img-circle text-center mb-3">
+                                <img src="/uploads/<%= seller.brandLogo %>" alt="Image">
+                            </div>
+                            <!--Retreive from db-->
+                            <h4 class="text-center"><%= seller.brandName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') %></h4>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row"></div>
+                        <div id="main" class="row">
+                            <% checkouts.forEach(checkout => { %>
+                                <div id="Product" class="col-md-4">
+                                    <!--orders-->
+                                    <!--Javascript the orders from database--><h3>Order #<%= parseInt(checkout._id) % 100 %>
+                                    </h3>
+                                    <br/>
+                                        <table class="table"> <% checkout.cartId.items.forEach(item => { %>
+                                            <% if (item.productId) { %>
+                                                <tr>
+                                                    <td rowspan="2">
+                                                        <img src="/uploads/<%= item.img %>" alt=" pro" style="width: 100px; height: 100px"/>
+                                                    </td>
+                                                    <td>
+                                                        <h5><%= item.productId.productname %></h5>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h5><%= item.productId.productprice %></h5>
+                                                    </td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                            <% } %>
+                                        <% }) %>
+                                        <tr>
+                                            <td>
+                                                <h5>Total:
+                                                    <%= checkout.totalPrice %></h5>
+                                                <h5>
+                                                    Delivery Date: "<%= checkout.deliveryDate %>"</h5>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr>
+                                            <td>Delivery Method</td>
+                                            <td>
+                                                <select name="Delivery Method" id="Delivery Method">
+                                                    <option value="Delivery Man">Delivery Man</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>Buyer Phone: <%= checkout.userId %> </p>
+                                                <script>
+                                                    console.log('hi')
+                                                    console.log('<%= checkout.userId %>' )
+                                                </script>
+                                            
+                                            </td>
+                                        </tr>
+                                        <!-- This will post the date so the buyer can see the expected delivery date -->
+                                        <form action="/seller/postDeliveryDate" method="POST">
+                                            <tr>
+                                                <td>Delivery Date</td>
+                                                <td><input name='date' type="date" value="<%= checkout.deliveryDate %>"/></td>
+                                                <input type="hidden" name="id" value="<%= checkout._id %>">
+                                                <button type="submit">Update Date</button>
+                                            </tr>
+                                        </form>
+                                        <tr>
+                                            <td style="text-align: center"></td>
+                                        </tr>
+                                        
+                                    </table>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <div
+                    style="text-align: center">
+                    <br/>
+                    <br/>
+                </div>
+                <br/><br/>
+            </div>
+        </section>
+    </body>
+</html>

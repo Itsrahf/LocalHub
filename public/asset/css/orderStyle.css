@@ -1,0 +1,121 @@
+
+.navbar {
+  width: 100%;
+  background-color: #b5d6cd;
+  overflow: auto;
+}
+
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: #000;
+  text-decoration: none;
+  font-size: 17px;
+  width: 100%; 
+  text-align: center; 
+}
+
+.navbar a:hover {
+  background-color: #fffcfc;
+}
+
+
+.navbar a.active {
+  text-decoration: underline;
+}
+
+#title{
+    background-color: #54a18a;
+    text-align: center;
+    color:white;
+    font-size: 25px;
+    font-weight: bold;
+    height: 100px;
+}
+
+#container3{
+
+    width: 200px;
+}
+
+.row{
+    text-align: center;
+
+}
+#Product{
+  text-align: left;
+align-content: center;
+  background-color: white;
+  height: 300px;
+  
+}
+ /* footer */
+ footer{
+    
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+footer .col{
+
+  display: flex;
+  flex-direction: column;
+align-items: flex-start;
+margin-bottom: 20px;
+}
+
+footer .logo {
+  margin-bottom: 30px;
+}
+
+footer h4{
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+footer p{
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+
+
+footer a{
+  font-size: 13px;
+  text-decoration: none;
+  color: #28211c;
+  margin-bottom: 10px;
+}
+
+footer .follow{
+  margin-top: 20px;
+}
+
+footer .follow i{
+ color: #6F8E88;
+ padding-right: 4px;
+ cursor: pointer;
+}
+
+
+footer .install .row img{
+
+  border: 1px solid #F2DED7;
+  border-radius: 6px;
+}
+
+footer .install img{
+  margin: 10px 0 15px 0;
+}
+
+footer .follow i:hover , footer a:hover{
+  color: #6F8E88;
+}
+
+footer .copyright{
+
+  width: 100%;
+  text-align: center;
+}
+

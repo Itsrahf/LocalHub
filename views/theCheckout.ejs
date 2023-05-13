@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="/asset/css/theCheckout.css">
+        <link
+        rel="stylesheet" type="text/css" href="/asset/navbar.css">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    </head>
+    <body>
+        <!-- header -->
+        <header>
+            <%- include('./partials/nav-bar.ejs' ) %>
+        </header>
+
+        <div class='container'>
+            <div class='window'>
+                <div class='order-info'>
+                    <div
+                        class='order-info-content'>
+
+                        <!-- address section -->
+
+                        <h1>Checkout</h1>
+                        <p>The total price of your order is
+                            <%= totalPrice %>.</p>
+                        <form method="POST" action="/checkout">
+                            <label for="address">Shipping Address</label>
+                            <input type="text" name="address" id="address" required>
+                            <br>
+                            <label for="cardNumber">Credit Card Number</label>
+                            <input type="text" name="cardNumber" id="cardNumber" required>
+                            <br>
+                            <label for="cardHolder">Cardholder Name</label>
+                            <input type="text" name="cardHolder" id="cardHolder" required>
+                            <br>
+                            <label for="expiryDate">Expiration Date</label>
+                            <input type="date" name="expiryDate" id="expiryDate" required>
+                            <br>
+
+                            <p>Please click the following link to complete your payment:</p>
+
+                            <br>
+                            <button type="submit">Proceed to payment</button>
+                        </form>
+
+                        <a href="<%= paymentLink %>">Pay Now</a>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </body>
+        <footer>
+            <div>
+                <%- include('./partials/footer.ejs') %>
+
+            </div>
+        </footer>
+    </body>
+</html>

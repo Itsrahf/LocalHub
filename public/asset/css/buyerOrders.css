@@ -1,0 +1,131 @@
+
+/* header { 
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  font-family: 'Barlow', sans-serif;
+} */
+
+header .logo {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+img.logo {
+
+  border-radius: 4px ;
+  max-width: 100px;
+  max-height: 100px;
+  }
+
+/* header ul {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+header ul li a {
+  text-decoration: none;
+  padding: 6px 15px;
+  color: #54a18a;
+  border-radius: 20px;
+}
+
+header ul li a:hover, 
+header ul li a.active{
+  background: white;
+  color: chocolate;
+} 
+
+body {
+  font-family: 'Barlow', sans-serif;
+  margin: 0;
+} */
+
+
+/* Page Content */
+.content {
+    padding:10px;
+    max-width: auto;
+    margin: 100px ;
+    font-family: 'Barlow', sans-serif;
+}
+
+/* orders list section*/
+#orders-list{
+  margin-top: 50px;
+  margin-bottom: 100px;
+  overflow-x: auto;
+}
+/* orders list table*/
+
+#orders-list-table{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  white-space: nowrap;
+  border-bottom: 1px solid #aaaaaa;
+}
+#orders-list-table thead{
+  border: 1px solid #aaaaaa;
+  border-left: none;
+  border-right: none;
+  background-color:#43806e;
+  color: white;
+  /* word-wrap: break-word; */
+}
+#orders-list-table thead td{
+  font-weight: 600;
+  font-size: 20px;
+  padding: 13px 0px;
+}
+#orders-list-table tbody tr td{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#orders-list-table tbody td{
+  font-size: 13px;
+  width: 150px;
+  text-align: center;
+}
+#orders-list table tr:nth-child(even){
+  background-color: #8e787822;
+  margin: 10px 0;
+}
+/* The style of the details's button */
+#orders-list button{
+  border-color: #54a181;
+  color:#54a181;
+}
+#orders-list button:hover{
+  background-color: #54a181;
+  color: white;
+  margin: 10px 0;}
+  
+  /* The style of the details's button */
+  #orders-list button{
+    border-color: #54a181;
+    color:#54a181;
+  }
+  #orders-list button:hover{
+    background-color: #54a181;
+    color: white;
+  }

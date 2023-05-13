@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- -->
+        <!-- meta tags -->
+        <meta charset="UTF-8"/> <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0"/>
+        <title>Shop Now</title>
+
+        <!-- linking our external style sheet-->
+
+        <link
+        rel="stylesheet" href="/asset/css/shopping.css"/>
+        <!-- <link rel="stylesheet" href="/asset/css/BrandPage.css"/> -->
+        <link rel="stylesheet" type="text/css" href="/asset/css/index-nav.css">
+        <link
+        rel="stylesheet" type="text/css" href="/asset/css/footer.css">
+
+        <!-- limporting google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link
+        rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+        <!-- importing icons from awesomefont website-->
+        <link
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+
+        <style>
+            /* this was put in to change the height taken from the css pages because it was messing up the page */
+            section {
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <!--header section -->
+        <%- include('./partials/nav-bar.ejs' ) %>
+        <!--hero section -->
+
+
+        <section id="page-header">
+            <h1>Products</h1>
+        </section>
+
+
+        <!-- Create search bar -->
+        <div class="search-bar">
+            <input class="search" type="text" name="q" placeholder="Search products..."/>
+            <button id="searchButton">Search</button>
+            <section id="searchResults"></section>
+        </div>
+
+        <br>
+        <div
+            class="main">
+            <!-- shopping product list -->
+            <section
+                id="product1" class="section-p1">
+
+                <!-- 1st product -->
+                <% if (typeof prod != 'undefined'){ %>
+                    <% for(let p of prod) {%>
+                        <div class="pro" onclick="window.location.href='/prod/<%= p.id %>';">
+                            <img src="/uploads/<%= p.productimg1 %>" alt="Product"/>
+                            <div class="description">
+                                <h5>
+                                    <%= p.productname%>
+                                </h5>
+                                <h4>
+                                    <%= p.productprice%>
+                                    SAR</h4>
+
+                            </div>
+                        </div>
+
+                    <% } %>
+                </section>
+            <% } else { %>
+                <p>No products for now! Check back soon!</p>
+            <% } %>
+
+
+            <!-- products list pagination -->
+            <section id="page-header">
+                <h1>Our Brands</h1>
+            </section>
+            <section id="product1" class="section-p1">
+                <% if (seller){ %>
+                    <% for(let s of seller) {%>
+                        <a href="/seller/<%=s.brandName%>">
+                            <div class="pro">
+                                <img src="/uploads/<%= s.brandLogo %>" alt="Brand" style="border-radius: 50%;"/>
+                                <div class="description">
+                                    <h5 style="text-align: center;">
+                                        <%= s.brandName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ') %>
+                                    </h5>
+                                </div>
+                            </div>
+                        </a>
+                    <% } %>
+                <% } else { %>
+                    <p></p>
+                <% } %>
+
+
+                <!--linking more icon websites -->
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+                <div
+                    style="height:50px;"><!-- seperate between footer and body -->
+                </div>
+            </section>
+        </div>
+
+
+        <script>
+            const products = document.querySelectorAll('.pro');
+            console.log(products)
+            const searchInput = document.querySelector('input[name="q"]');
+            const searchButton = document.querySelector('#searchButton');
+            const searchResults = document.querySelector('#searchResults');
+
+            searchButton.addEventListener('click', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                // Filter products based on search term
+                products.forEach(product => { // const productName = product.dataset.name.toLowerCase();
+                    const productName = product.querySelector('h5').textContent.toLowerCase();
+                    if (productName.includes(searchTerm)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+
+                    // Display search results
+                    const container = document.querySelector('#searchResults');
+                    container.innerHTML = '';
+                    // container.appendChild(searchResults);
+                    console.log(document.querySelector('#searchResults'));
+                });
+
+
+            });
+        </script>
+
+    </body>
+</html>
