@@ -82,7 +82,7 @@ exports.getDetailedProduct = async (req, res, next) => {
     try{
         const product = await Product.findOne({_id: prodId}).populate('seller'); 
         console.log(product);
-        return res.render("BuyerDetailedProduct", { path: "/prod", product });
+        return res.render("buyerDetailedProduct", { path: "/prod", product });
     }catch (err){
         console.log(err.message)
         res.redirect('/shopping');
